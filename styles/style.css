@@ -4,9 +4,9 @@
 ✦ theme-dark — класс тёмной темы
 ✦ theme-light — класс светлой темы
 ✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__list-item-like-button — для кнопки Like рядом с иконкой
+✦ card__list-item-icon-button — для кнопки, оборачивающей иконку
+✦ card__list-item-icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
@@ -15,6 +15,344 @@
 */
 
 .page {
+  margin: 0 auto;
+  color: var(--accent-color);
+  font-family: var(--main-font, Arial);
+  background-color: var(--bg-color, #fff);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 0;
+  border: var(--border);
+  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 23px;
+  font-family: var(--accent-font, sans-serif);
+  font-variation-settings: 'wght' var(--main-font-weight);
+  background-color: var(--bg-color, #fff);
+  inline-size: 100%;
+}
+
+.header__logo {
+  margin-block-end: 20px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-decoration: none;
+}
+
+.header__title {
+  margin-block-end: 25px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-inline-start: 20px;
+}
+
+.theme-menu__item {
+  font-size: 14px;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-menu__button:disabled {
+  position: relative;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  margin-inline-start: -24px;
+  margin-block-start: 0;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-color, #000);
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 2px;
+}
+
+.theme-menu__button:focus-visible:after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card__list-item {
+  border: var(--border);
+  background-color: var(--bg-color, #fff);
+  inline-size: 100%;
+}
+
+.card__list-item-heading {
+  padding: 5px 10px;
+  font-weight: var(--accent-font-weight);
+  font-size: 18px;
+  border-block-end: var(--border);
+}
+
+.card__list-item-cover {
+  position: relative;
+}
+
+.card__list-item-cover-image {
+  inline-size: 100%;
+  block-size: clamp(23.25rem, 16.0977rem + 30.5164vw, 43.5625rem);
+  object-fit: cover;
+  object-position: center;
+  border-block-end: var(--border);
+}
+
+.card__list-item-cover-title {
+  position: absolute;
+  opacity: 0.5;
+  font-family: var(--accent-font, sans-serif);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-shadow: 1.5px 1.5px 0 var(--bg-color, #fff), -1.5px -1.5px 0 var(--bg-color, #fff);
+  inset-block-start: 25px;
+  inset-inline-end: 13px;
+  mix-blend-mode: hard-light;
+}
+
+.card__list-item-description {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  padding: 23px 25px 21px;
+}
+
+.card__list-item-paragraph {
+  font-size: 18px;
+  line-height: 116.667%;
+}
+
+.card__list-item-buttons {
+  display: flex;
+  justify-content: end;
+  gap: 6px;
+  block-size: 38px;
+}
+
+.card__list-item-icon-button {
+  border: 2px solid transparent;
+  padding: 0;
+  background-color: transparent;
+  transition: border 0.3s ease;
+}
+
+.card__list-item-icon-button:focus {
+  outline: none;
+}
+
+.card__list-item-icon-button:focus-visible {
+  border: var(--border);
+}
+
+.card__list-item-like-button {
+  padding: 9px 17px;
+  inline-size: 130px;
+}
+
+.animated-button {
+  position: relative;
+  border: var(--border);
+  font-family: var(--accent-font, sans-serif);
+  font-size: 14px;
+  line-height: 90%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.animated-button:focus {
+  outline: none;
+}
+
+.animated-button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color, #000);
+  transition: box-shadow 0.3s ease;
+}
+
+.animated-button::after {
+  content: "";
+  position: absolute;
+  inline-size: 0;
+  block-size: 100%;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  inset-block-end: 0;
+  inset-inline-start: 0;
+}
+
+.animated-button:hover::after {
+  inline-size: 100%;
+  background-color: var(--accent-color, #000);
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__content {
+  margin: 54px 0 105px;
+  background-color: var(--bg-color, #fff);
+}
+
+.footer__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  inline-size: clamp(19.375rem, 18.7368rem + 2.723vw, 21.1875rem);
+  block-size: 84px;
+}
+
+.like-icon {
+  cursor: pointer;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.footer__dialog {
+  border: var(--border);
+  padding: 0;
+  color: var(--accent-color, #000);
+  font-family: var(--accent-font, sans-serif);
+  font-size: 14px;
+  background-color: var(--bg-color, #fff);
+  inline-size: clamp(21.5625rem, 21.2104rem + 1.5023vw, 22.5625rem);
+  min-block-size: 193px;
+}
+
+.footer__dialog[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__dialog-content {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__dialog-content-text {
+  inline-size: clamp(12.375rem, 11.5827rem + 3.3803vw, 14.625rem);
+}
+
+.footer__dialog-content-button {
+  margin-block-start: 30px;
+  padding: 9px 17px;
+  inline-size: clamp(16.3125rem, 15.5202rem + 3.3803vw, 18.5625rem);
+  block-size: 38px;
+}
+
+.beginning-image {
+  filter: contrast(200%);
+}
+
+.shock-image {
+  filter: brightness(50%);
+}
+
+.victory-image {
+  filter: grayscale(50%);
+}
+
+.perfect-image {
+  filter: drop-shadow(6px 6px 10px #000);
+}
+
+.motivation-image { 
+  filter: hue-rotate(220deg);
+  object-position: 0 0;
+}
+
+.anonymous-image {
+  filter: blur(1px);
+}
+
+.shocked-monkey-image {
+  filter: brightness(120%) contrast(120%);
+}
+
+.long-way-image {
+  filter: invert(20%);
+}
+
+.footer__dialog::backdrop {
+  opacity: 0.75;
+  background-color: #000;
+}
+
+.footer__button-floppy {
+  inline-size: 28px;
+}
+
+@supports ((text-stroke: .5px var(--bg-color, #fff)) or (-webkit-text-stroke: .5px var(--bg-color, #fff))) {
+
+  .card__list-item-cover-title {
+    text-shadow: none;
+    -webkit-text-stroke: .5px var(--bg-color, #fff);
+    text-stroke: .5px var(--bg-color, #fff);
+  }
+}
+
+@media (width >= 1440px) {
+
+  .footer__button {
+    flex-direction: row;
+    block-size: 55px;
+  }
+
+  .footer__button-floppy {
+    inline-size: 21px;
+  }
 }
