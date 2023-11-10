@@ -14,7 +14,7 @@
 
 */
 
-.page {
+.page { 
   margin: 0 auto;
   color: var(--accent-color);
   font-family: var(--main-font, Arial);
@@ -37,7 +37,6 @@
   font-family: var(--accent-font, sans-serif);
   font-variation-settings: 'wght' var(--main-font-weight);
   background-color: var(--bg-color, #fff);
-  inline-size: 100%;
 }
 
 .header__logo {
@@ -121,7 +120,6 @@
 .card__list-item {
   border: var(--border);
   background-color: var(--bg-color, #fff);
-  inline-size: 100%;
 }
 
 .card__list-item-heading {
