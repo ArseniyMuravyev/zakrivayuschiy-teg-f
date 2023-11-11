@@ -14,7 +14,7 @@
 
 */
 
-.page { 
+.page {
   margin: 0 auto;
   color: var(--accent-color);
   font-family: var(--main-font, Arial);
@@ -35,8 +35,8 @@
   border: var(--border);
   padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 23px;
   font-family: var(--accent-font, fantasy);
-  font-variation-settings: 'wght' var(--main-font-weight);
   background-color: var(--bg-color, #fff);
+  font-variation-settings: "wght" var(--main-font-weight);
 }
 
 .header__logo {
@@ -123,10 +123,10 @@
 }
 
 .card__list-item-heading {
+  border-block-end: var(--border);
   padding: 5px 10px;
   font-weight: var(--accent-font-weight);
   font-size: 18px;
-  border-block-end: var(--border);
 }
 
 .card__list-item-cover {
@@ -134,11 +134,11 @@
 }
 
 .card__list-item-cover-image {
-  inline-size: 100%;
-  block-size: clamp(23.25rem, 16.0977rem + 30.5164vw, 43.5625rem);
+  border-block-end: var(--border);
   object-fit: cover;
   object-position: center;
-  border-block-end: var(--border);
+  inline-size: 100%;
+  block-size: clamp(23.25rem, 16.0977rem + 30.5164vw, 43.5625rem);
 }
 
 .card__list-item-cover-title {
@@ -147,7 +147,8 @@
   font-family: var(--accent-font, fantasy);
   font-size: 14px;
   text-transform: uppercase;
-  text-shadow: 1.5px 1.5px 0 var(--bg-color, #fff), -1.5px -1.5px 0 var(--bg-color, #fff);
+  text-shadow: 1.5px 1.5px 0 var(--bg-color, #fff),
+    -1.5px -1.5px 0 var(--bg-color, #fff);
   inset-block-start: 25px;
   inset-inline-end: 13px;
   mix-blend-mode: hard-light;
@@ -200,16 +201,17 @@
   line-height: 90%;
   background-color: transparent;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .button__text {
   position: absolute;
   z-index: 5;
+  color: var(--bg-color);
+  transform: translate(-50%, -50%);
   inset-block-start: 50%;
   inset-inline-start: 50%;
-  transform: translate(-50%, -50%);
   mix-blend-mode: difference;
-  color: var(--bg-color);
 }
 
 .animated-button:focus {
@@ -224,19 +226,17 @@
 .animated-button::after {
   content: "";
   position: absolute;
-  inline-size: 0;
-  block-size: 100%;
   transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
+  transform: translateX(-100%);
+  inline-size: 100%;
+  block-size: 100%;
   inset-block-end: 0;
   inset-inline-start: 0;
+  background-color: var(--accent-color, #000);
 }
 
 .animated-button:hover::after {
-  inline-size: 100%;
-  background-color: var(--accent-color, #000);
-  transform: scaleX(1);
-  transform-origin: left;
+  transform: translateX(0);
 }
 
 .footer {
@@ -328,8 +328,8 @@
 .footer__dialog[open] {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .footer__dialog-content {
@@ -339,17 +339,17 @@
 }
 
 .footer__dialog-content-text {
-  inline-size: clamp(12.375rem, 11.5827rem + 3.3803vw, 14.625rem);
-  text-transform: uppercase;
   line-height: 150%;
+  text-transform: uppercase;
+  inline-size: clamp(12.375rem, 11.5827rem + 3.3803vw, 14.625rem);
 }
 
 .footer__dialog-content-button {
   margin-block-start: 30px;
   padding: 9px 17px;
+  text-transform: uppercase;
   inline-size: clamp(16.3125rem, 15.5202rem + 3.3803vw, 18.5625rem);
   block-size: 38px;
-  text-transform: uppercase;
 }
 
 .beginning-image {
@@ -368,9 +368,9 @@
   filter: drop-shadow(6px 6px 10px #000);
 }
 
-.motivation-image { 
-  filter: hue-rotate(220deg);
+.motivation-image {
   object-position: 0 0;
+  filter: hue-rotate(220deg);
 }
 
 .anonymous-image {
@@ -391,25 +391,27 @@
 }
 
 .footer__button-floppy {
+  z-index: 10;
+  color: var(--bg-color);
   inline-size: 28px;
   mix-blend-mode: difference;
-  color: var(--bg-color);
-  z-index: 10;
 }
 
 .footer__content-text {
+  transform: translate(-30%, -75%);
   inline-size: 100%;
   inset-block-start: 75%;
   inset-inline-start: 30%;
-  transform: translate(-30%, -75%);
 }
 
 .footer__dialog-content-button-text {
   line-height: normal;
 }
 
-@supports ((text-stroke: 1px var(--bg-color, #fff)) or (-webkit-text-stroke: 1px var(--bg-color, #fff))) {
-
+@supports (
+  (text-stroke: 1px var(--bg-color, #fff)) or
+    (-webkit-text-stroke: 1px var(--bg-color, #fff))
+) {
   .card__list-item-cover-title {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--bg-color, #fff);
@@ -418,13 +420,19 @@
 }
 
 @media (width >= 1440px) {
-
   .footer__button {
     flex-direction: row;
+    padding: 0 19px;
     block-size: 55px;
   }
 
   .footer__button-floppy {
     inline-size: 21px;
+  }
+
+  .footer__content-text {
+    transform: translate(-66%, -50%);
+    inset-block-start: 50%;
+    inset-inline-start: 70%;
   }
 }
