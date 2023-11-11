@@ -34,7 +34,7 @@
   margin: 100px 0;
   border: var(--border);
   padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 23px;
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   font-variation-settings: 'wght' var(--main-font-weight);
   background-color: var(--bg-color, #fff);
 }
@@ -144,7 +144,7 @@
 .card__list-item-cover-title {
   position: absolute;
   opacity: 0.5;
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   font-size: 14px;
   text-transform: uppercase;
   text-shadow: 1.5px 1.5px 0 var(--bg-color, #fff), -1.5px -1.5px 0 var(--bg-color, #fff);
@@ -195,11 +195,21 @@
 .animated-button {
   position: relative;
   border: var(--border);
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   font-size: 14px;
   line-height: 90%;
   background-color: transparent;
   cursor: pointer;
+}
+
+.button__text {
+  position: absolute;
+  z-index: 5;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  color: var(--bg-color);
 }
 
 .animated-button:focus {
@@ -242,7 +252,6 @@
 .footer__button {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 8px;
   padding: 12px;
@@ -309,7 +318,7 @@
   border: var(--border);
   padding: 0;
   color: var(--accent-color, #000);
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   font-size: 14px;
   background-color: var(--bg-color, #fff);
   inline-size: clamp(21.5625rem, 21.2104rem + 1.5023vw, 22.5625rem);
@@ -325,11 +334,14 @@
 
 .footer__dialog-content {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
 .footer__dialog-content-text {
   inline-size: clamp(12.375rem, 11.5827rem + 3.3803vw, 14.625rem);
+  text-transform: uppercase;
+  line-height: 150%;
 }
 
 .footer__dialog-content-button {
@@ -337,6 +349,7 @@
   padding: 9px 17px;
   inline-size: clamp(16.3125rem, 15.5202rem + 3.3803vw, 18.5625rem);
   block-size: 38px;
+  text-transform: uppercase;
 }
 
 .beginning-image {
@@ -379,14 +392,28 @@
 
 .footer__button-floppy {
   inline-size: 28px;
+  mix-blend-mode: difference;
+  color: var(--bg-color);
+  z-index: 10;
 }
 
-@supports ((text-stroke: .5px var(--bg-color, #fff)) or (-webkit-text-stroke: .5px var(--bg-color, #fff))) {
+.footer__content-text {
+  inline-size: 100%;
+  inset-block-start: 75%;
+  inset-inline-start: 30%;
+  transform: translate(-30%, -75%);
+}
+
+.footer__dialog-content-button-text {
+  line-height: normal;
+}
+
+@supports ((text-stroke: 1px var(--bg-color, #fff)) or (-webkit-text-stroke: 1px var(--bg-color, #fff))) {
 
   .card__list-item-cover-title {
     text-shadow: none;
-    -webkit-text-stroke: .5px var(--bg-color, #fff);
-    text-stroke: .5px var(--bg-color, #fff);
+    -webkit-text-stroke: 1px var(--bg-color, #fff);
+    text-stroke: 1px var(--bg-color, #fff);
   }
 }
 

@@ -16,6 +16,14 @@
   linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
 }
 
+.theme-light .button__text {
+  color: var(--bg-color);
+}
+
+.theme-light .footer__button-floppy {
+  color: var(--bg-color);
+}
+
 :root.theme-dark {
   --bg-color: #000;
   --accent-color: #00CC14;
@@ -25,6 +33,14 @@
   repeating-linear-gradient(to right, #000, #000 2px, transparent 2px, transparent 4px), 
   repeating-linear-gradient(to bottom, #000, #000 2px, transparent 2px, transparent 4px),
   linear-gradient(to bottom, #007f0c, #004306);
+}
+
+.theme-dark .button__text {
+  color: var(--accent-color);
+}
+
+.theme-dark .footer__button-floppy {
+  color: var(--accent-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,5 +54,13 @@
     repeating-linear-gradient(to right, #000, #000 2px, transparent 2px, transparent 4px), 
     repeating-linear-gradient(to bottom, #000, #000 2px, transparent 2px, transparent 4px),
     linear-gradient(to bottom, #007f0c, #004306);
+  }
+
+  .button__text {
+    color: var(--accent-color);
+  }
+
+  .footer__button-floppy {
+    color: var(--accent-color);
   }
 }

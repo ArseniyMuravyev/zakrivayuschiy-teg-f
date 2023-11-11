@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark light" />
+    <meta name="color-scheme" content="light dark" />
     <title>Закрывающий тег</title>
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <link rel="icon" href="./images/favicon.ico" sizes="any" />
@@ -19,7 +19,7 @@
 
   <body class="page content">
     <header class="header content">
-      <a href="#" class="header__logo">&lt;/HTML&gt;</a>
+      <a class="header__logo">&lt;/HTML&gt;</a>
       <h1 class="header__title">закрывающий тег</h1>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
@@ -109,7 +109,7 @@
                   </svg>
                 </button>
                 <button class="card__like-button animated-button">
-                  <span class="button-text">Like</span>
+                  <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
@@ -174,7 +174,7 @@
                   </svg>
                 </button>
                 <button class="card__like-button animated-button">
-                  <span class="button-text">Like</span>
+                  <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
@@ -237,7 +237,7 @@
                   </svg>
                 </button>
                 <button class="card__like-button animated-button">
-                  <span class="button-text">Like</span>
+                  <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
@@ -301,7 +301,7 @@
                   </svg>
                 </button>
                 <button class="card__like-button animated-button">
-                  <span class="button-text">Like</span>
+                  <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
@@ -366,7 +366,7 @@
                   </svg>
                 </button>
                 <button class="card__like-button animated-button">
-                  <span class="button-text">Like</span>
+                  <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
@@ -430,7 +430,7 @@
                   </svg>
                 </button>
                 <button class="card__like-button animated-button">
-                  <span class="button-text">Like</span>
+                  <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
@@ -496,7 +496,7 @@
                   </svg>
                 </button>
                 <button class="card__like-button animated-button">
-                  <span class="button-text">Like</span>
+                  <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
@@ -560,7 +560,7 @@
                   </svg>
                 </button>
                 <button class="card__like-button animated-button">
-                  <span class="button-text">Like</span>
+                  <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
@@ -580,7 +580,7 @@
           <svg viewBox="0 0 39 39" class="footer__button-floppy">
             <use href="./svg/floppy.svg#floppy"></use>
           </svg>
-          <span class="footer__content-text">Сохранить на память</span>
+          <span class="footer__content-text button__text">Сохранить на память</span>
         </button>
       </div>
 
@@ -589,13 +589,13 @@
           <svg width="39" height="39">
             <use href="svg/floppy.svg#floppy"></use>
           </svg>
-          <p class="footer__dialog-content-text">
+          <span class="footer__dialog-content-text">
             Вставьте дискету, чтобы продолжить
-          </p>
+          </span>
         </div>
         <form method="dialog">
           <button class="footer__dialog-content-button animated-button">
-            ок
+            <span class="footer__dialog-content-button-text button__text">ок</span>
           </button>
         </form>
       </dialog>
